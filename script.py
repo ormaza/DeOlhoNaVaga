@@ -11,13 +11,13 @@ soup = BeautifulSoup(response.text, 'html.parser')
 specific_div = soup.find('label', id='form:j_idt457')
 if specific_div:
   child_element = specific_div.find('span', class_='ui-outputlabel-label')
-  inscritos = int(child_element.text)
+  inscritos = int(child_element.text.replace(".",""))
   print("numero de inscritos:", inscritos)
 
 specific_div = soup.find('label', id='form:participants')
 if specific_div:
   child_element = specific_div.find('span', class_='ui-outputlabel-label')
-  participantes = int(child_element.text)
+  participantes = int(child_element.text.replace(".",""))
   print("numero de participantes do ranking:", participantes)
 
 fator_multiplicador = inscritos/participantes
